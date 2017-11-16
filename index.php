@@ -161,7 +161,7 @@ if (empty($cancel) and $unregistration and !$confirm) {
     // load the hub selector form
     $hubselectorform = new tool_customhub\hub_selector_form();
     $fromform = $hubselectorform->get_data();
-    $selectedhuburl = optional_param('publichub', false, PARAM_URL);
+    //$selectedhuburl = optional_param('publichub', false, PARAM_URL);
     $unlistedhuburl = optional_param('unlistedurl', false, PARAM_TEXT);
     $password = optional_param('password', '', PARAM_RAW);
     $registeringhuburl = null;
@@ -169,8 +169,8 @@ if (empty($cancel) and $unregistration and !$confirm) {
         if (clean_param($unlistedhuburl, PARAM_URL) !== '') {
             $registeringhuburl = $unlistedhuburl;
         }
-    } else if (!empty($selectedhuburl)) {
-        $registeringhuburl = $selectedhuburl;
+    //} else if (!empty($selectedhuburl)) {
+    //    $registeringhuburl = $selectedhuburl;
     }
 
     // a hub has been selected, redirect to the hub registration page
@@ -178,8 +178,7 @@ if (empty($cancel) and $unregistration and !$confirm) {
         $hubname = optional_param(clean_param($registeringhuburl, PARAM_ALPHANUMEXT), '', PARAM_TEXT);
         $params = array('sesskey' => sesskey(), 'huburl' => $registeringhuburl,
             'password' => $password, 'hubname' => $hubname);
-        redirect(new moodle_url($CFG->wwwroot . "/" . $CFG->admin . "/registration/register.php",
-            $params));
+        redirect(new moodle_url('/admin/tool/customhub/register.php', $params));
     }
 
     echo $OUTPUT->header();

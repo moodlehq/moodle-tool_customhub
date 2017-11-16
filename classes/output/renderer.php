@@ -87,7 +87,7 @@ class renderer extends plugin_renderer_base {
             $hublink = html_writer::tag('a', $hub->hubname, array('href' => $hub->huburl));
             $hublinkcell = html_writer::tag('div', $hublink, array('class' => 'registeredhubrow'));
 
-            $unregisterhuburl = new moodle_url("/" . $CFG->admin . "/registration/index.php",
+            $unregisterhuburl = new moodle_url("/" . $CFG->admin . "/tool/customhub/index.php",
                 array('sesskey' => sesskey(), 'huburl' => $hub->huburl,
                     'unregistration' => 1));
             $unregisterbutton = new single_button($unregisterhuburl,

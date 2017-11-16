@@ -28,6 +28,8 @@ use stdClass;
 use Exception;
 use moodle_exception;
 use moodleform;
+use context_course;
+use core_collator;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -130,9 +132,9 @@ class site_registration_form extends moodleform {
 
         $options = array();
         $registrationmanager = new registration_manager();
-        $options[HUB_SITENOTPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITENOTPUBLISHED);
-        $options[HUB_SITENAMEPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITENAMEPUBLISHED);
-        $options[HUB_SITELINKPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITELINKPUBLISHED);
+        $options[\core\hub\registration::HUB_SITENOTPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITENOTPUBLISHED);
+        $options[\core\hub\registration::HUB_SITENAMEPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITENAMEPUBLISHED);
+        $options[\core\hub\registration::HUB_SITELINKPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITELINKPUBLISHED);
         $mform->addElement('select', 'privacy', get_string('siteprivacy', 'hub'), $options);
         $mform->setDefault('privacy', $privacy);
         $mform->setType('privacy', PARAM_ALPHA);

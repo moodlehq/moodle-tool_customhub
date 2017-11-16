@@ -48,7 +48,7 @@ class hub_selector_form extends moodleform {
         $mform->addElement('header', 'site', get_string('selecthub', 'hub'));
 
         //retrieve the hub list on the hub directory by web service
-        $function = 'hubdirectory_get_hubs';
+        /*$function = 'hubdirectory_get_hubs';
         $params = array();
         $serverurl = HUB_HUBDIRECTORYURL . "/local/hubdirectory/webservice/webservices.php";
         require_once($CFG->dirroot . "/webservice/xmlrpc/lib.php");
@@ -89,6 +89,7 @@ class hub_selector_form extends moodleform {
         }
 
         $mform->addElement('static', 'or', '', get_string('orenterprivatehub', 'hub'));
+        */
 
         //Private hub
         $mform->addElement('text', 'unlistedurl', get_string('privatehuburl', 'hub'),
