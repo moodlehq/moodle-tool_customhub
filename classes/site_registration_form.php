@@ -251,109 +251,56 @@ class site_registration_form extends moodleform {
         $badges = $DB->count_records_select('badge', 'status <> ' . BADGE_STATUS_ARCHIVED);
         $issuedbadges = $DB->count_records('badge_issued');
 
-        if (HUB_MOODLEORGHUBURL != $huburl) {
-            $mform->addElement('checkbox', 'courses', get_string('sendfollowinginfo', 'hub'),
-                " " . get_string('coursesnumber', 'hub', $coursecount));
-            $mform->setDefault('courses', $coursesnumber != -1);
-            $mform->setType('courses', PARAM_INT);
-            $mform->addHelpButton('courses', 'sendfollowinginfo', 'hub');
+        $mform->addElement('checkbox', 'courses', get_string('sendfollowinginfo', 'hub'),
+            " " . get_string('coursesnumber', 'hub', $coursecount));
+        $mform->setDefault('courses', $coursesnumber != -1);
+        $mform->setType('courses', PARAM_INT);
+        $mform->addHelpButton('courses', 'sendfollowinginfo', 'hub');
 
-            $mform->addElement('checkbox', 'users', '',
-                " " . get_string('usersnumber', 'hub', $usercount));
-            $mform->setDefault('users', $usersnumber != -1);
-            $mform->setType('users', PARAM_INT);
+        $mform->addElement('checkbox', 'users', '',
+            " " . get_string('usersnumber', 'hub', $usercount));
+        $mform->setDefault('users', $usersnumber != -1);
+        $mform->setType('users', PARAM_INT);
 
-            $mform->addElement('checkbox', 'roleassignments', '',
-                " " . get_string('roleassignmentsnumber', 'hub', $roleassigncount));
-            $mform->setDefault('roleassignments', $roleassignmentsnumber != -1);
-            $mform->setType('roleassignments', PARAM_INT);
+        $mform->addElement('checkbox', 'roleassignments', '',
+            " " . get_string('roleassignmentsnumber', 'hub', $roleassigncount));
+        $mform->setDefault('roleassignments', $roleassignmentsnumber != -1);
+        $mform->setType('roleassignments', PARAM_INT);
 
-            $mform->addElement('checkbox', 'posts', '',
-                " " . get_string('postsnumber', 'hub', $postcount));
-            $mform->setDefault('posts', $postsnumber != -1);
-            $mform->setType('posts', PARAM_INT);
+        $mform->addElement('checkbox', 'posts', '',
+            " " . get_string('postsnumber', 'hub', $postcount));
+        $mform->setDefault('posts', $postsnumber != -1);
+        $mform->setType('posts', PARAM_INT);
 
-            $mform->addElement('checkbox', 'questions', '',
-                " " . get_string('questionsnumber', 'hub', $questioncount));
-            $mform->setDefault('questions', $questionsnumber != -1);
-            $mform->setType('questions', PARAM_INT);
+        $mform->addElement('checkbox', 'questions', '',
+            " " . get_string('questionsnumber', 'hub', $questioncount));
+        $mform->setDefault('questions', $questionsnumber != -1);
+        $mform->setType('questions', PARAM_INT);
 
-            $mform->addElement('checkbox', 'resources', '',
-                " " . get_string('resourcesnumber', 'hub', $resourcecount));
-            $mform->setDefault('resources', $resourcesnumber != -1);
-            $mform->setType('resources', PARAM_INT);
+        $mform->addElement('checkbox', 'resources', '',
+            " " . get_string('resourcesnumber', 'hub', $resourcecount));
+        $mform->setDefault('resources', $resourcesnumber != -1);
+        $mform->setType('resources', PARAM_INT);
 
-            $mform->addElement('checkbox', 'badges', '',
-                " " . get_string('badgesnumber', 'hub', $badges));
-            $mform->setDefault('badges', $badgesnumber != -1);
-            $mform->setType('badges', PARAM_INT);
+        $mform->addElement('checkbox', 'badges', '',
+            " " . get_string('badgesnumber', 'hub', $badges));
+        $mform->setDefault('badges', $badgesnumber != -1);
+        $mform->setType('badges', PARAM_INT);
 
-            $mform->addElement('checkbox', 'issuedbadges', '',
-                " " . get_string('issuedbadgesnumber', 'hub', $issuedbadges));
-            $mform->setDefault('issuedbadges', $issuedbadgesnumber != -1);
-            $mform->setType('issuedbadges', PARAM_INT);
+        $mform->addElement('checkbox', 'issuedbadges', '',
+            " " . get_string('issuedbadgesnumber', 'hub', $issuedbadges));
+        $mform->setDefault('issuedbadges', $issuedbadgesnumber != -1);
+        $mform->setType('issuedbadges', PARAM_INT);
 
-            $mform->addElement('checkbox', 'participantnumberaverage', '',
-                " " . get_string('participantnumberaverage', 'hub', $participantnumberaverage));
-            $mform->setDefault('participantnumberaverage', $participantnumberaveragecfg != -1);
-            $mform->setType('participantnumberaverage', PARAM_FLOAT);
+        $mform->addElement('checkbox', 'participantnumberaverage', '',
+            " " . get_string('participantnumberaverage', 'hub', $participantnumberaverage));
+        $mform->setDefault('participantnumberaverage', $participantnumberaveragecfg != -1);
+        $mform->setType('participantnumberaverage', PARAM_FLOAT);
 
-            $mform->addElement('checkbox', 'modulenumberaverage', '',
-                " " . get_string('modulenumberaverage', 'hub', $modulenumberaverage));
-            $mform->setDefault('modulenumberaverage', $modulenumberaveragecfg != -1);
-            $mform->setType('modulenumberaverage', PARAM_FLOAT);
-        } else {
-            $mform->addElement('static', 'courseslabel', get_string('sendfollowinginfo', 'hub'),
-                " " . get_string('coursesnumber', 'hub', $coursecount));
-            $mform->addElement('hidden', 'courses', 1);
-            $mform->setType('courses', PARAM_INT);
-            $mform->addHelpButton('courseslabel', 'sendfollowinginfo', 'hub');
-
-            $mform->addElement('static', 'userslabel', '',
-                " " . get_string('usersnumber', 'hub', $usercount));
-            $mform->addElement('hidden', 'users', 1);
-            $mform->setType('users', PARAM_INT);
-
-            $mform->addElement('static', 'roleassignmentslabel', '',
-                " " . get_string('roleassignmentsnumber', 'hub', $roleassigncount));
-            $mform->addElement('hidden', 'roleassignments', 1);
-            $mform->setType('roleassignments', PARAM_INT);
-
-            $mform->addElement('static', 'postslabel', '',
-                " " . get_string('postsnumber', 'hub', $postcount));
-            $mform->addElement('hidden', 'posts', 1);
-            $mform->setType('posts', PARAM_INT);
-
-            $mform->addElement('static', 'questionslabel', '',
-                " " . get_string('questionsnumber', 'hub', $questioncount));
-            $mform->addElement('hidden', 'questions', 1);
-            $mform->setType('questions', PARAM_INT);
-
-            $mform->addElement('static', 'resourceslabel', '',
-                " " . get_string('resourcesnumber', 'hub', $resourcecount));
-            $mform->addElement('hidden', 'resources', 1);
-            $mform->setType('resources', PARAM_INT);
-
-            $mform->addElement('static', 'badgeslabel', '',
-                " " . get_string('badgesnumber', 'hub', $badges));
-            $mform->addElement('hidden', 'badges', 1);
-            $mform->setType('badges', PARAM_INT);
-
-            $mform->addElement('static', 'issuedbadgeslabel', '',
-                " " . get_string('issuedbadgesnumber', 'hub', $issuedbadges));
-            $mform->addElement('hidden', 'issuedbadges', true);
-            $mform->setType('issuedbadges', PARAM_INT);
-
-            $mform->addElement('static', 'participantnumberaveragelabel', '',
-                " " . get_string('participantnumberaverage', 'hub', $participantnumberaverage));
-            $mform->addElement('hidden', 'participantnumberaverage', 1);
-            $mform->setType('participantnumberaverage', PARAM_FLOAT);
-
-            $mform->addElement('static', 'modulenumberaveragelabel', '',
-                " " . get_string('modulenumberaverage', 'hub', $modulenumberaverage));
-            $mform->addElement('hidden', 'modulenumberaverage', 1);
-            $mform->setType('modulenumberaverage', PARAM_FLOAT);
-        }
+        $mform->addElement('checkbox', 'modulenumberaverage', '',
+            " " . get_string('modulenumberaverage', 'hub', $modulenumberaverage));
+        $mform->setDefault('modulenumberaverage', $modulenumberaveragecfg != -1);
+        $mform->setType('modulenumberaverage', PARAM_FLOAT);
 
         //check if it's a first registration or update
         $hubregistered = $registrationmanager->get_registeredhub($huburl);

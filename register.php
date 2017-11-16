@@ -178,26 +178,5 @@ if (!empty($error)) {
     echo $error;
 }
 
-// Some Moodle.org registration explanation.
-if ($huburl == HUB_MOODLEORGHUBURL) {
-    $notificationtype = \core\output\notification::NOTIFY_ERROR;
-    if (!empty($registeredhub->token)) {
-        if ($registeredhub->timemodified == 0) {
-            $registrationmessage = get_string('pleaserefreshregistrationunknown', 'admin');
-        } else {
-            $lastupdated = userdate($registeredhub->timemodified, get_string('strftimedate', 'langconfig'));
-            $registrationmessage = get_string('pleaserefreshregistration', 'admin', $lastupdated);
-            $notificationtype = \core\output\notification::NOTIFY_INFO;
-        }
-    } else {
-        $registrationmessage = get_string('registrationwarning', 'admin');
-    }
-    echo $OUTPUT->notification($registrationmessage, $notificationtype);
-
-    echo $OUTPUT->heading(get_string('registerwithmoodleorg', 'admin'));
-    $renderer = $PAGE->get_renderer('core', 'register');
-    echo $renderer->moodleorg_registration_message();
-}
-
 $siteregistrationform->display();
 echo $OUTPUT->footer();

@@ -43,23 +43,6 @@ use html_table;
 class renderer extends plugin_renderer_base {
 
     /**
-     * Display message about the benefits of registering on Moodle.org
-     *
-     * @return string
-     */
-    public function moodleorg_registration_message() {
-        $moodleorgstatslink = html_writer::link('http://moodle.net/stats',
-            get_string('statsmoodleorg', 'admin'),
-            array('target' => '_blank'));
-
-        $moodleorgregmsg = get_string('registermoodleorg', 'admin');
-        $items = array(get_string('registermoodleorgli1', 'admin'),
-            get_string('registermoodleorgli2', 'admin', $moodleorgstatslink));
-        $moodleorgregmsg .= html_writer::alist($items);
-        return $moodleorgregmsg;
-    }
-
-    /**
      * Display a box message confirming a site registration (add or update)
      * @param string $confirmationmessage
      * @return string
@@ -82,7 +65,7 @@ class renderer extends plugin_renderer_base {
 
         foreach ($hubs as $hub) {
             if ($hub->huburl == HUB_MOODLEORGHUBURL) {
-                $hub->hubname = get_string('registeredmoodleorg', 'hub', $hub->hubname);
+                continue;
             }
             $hublink = html_writer::tag('a', $hub->hubname, array('href' => $hub->huburl));
             $hublinkcell = html_writer::tag('div', $hublink, array('class' => 'registeredhubrow'));

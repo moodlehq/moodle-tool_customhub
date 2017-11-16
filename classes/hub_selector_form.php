@@ -43,55 +43,9 @@ require_once($CFG->libdir . '/formslib.php');
 class hub_selector_form extends moodleform {
 
     public function definition() {
-        global $CFG, $OUTPUT;
         $mform = & $this->_form;
         $mform->addElement('header', 'site', get_string('selecthub', 'tool_customhub'));
 
-        //retrieve the hub list on the hub directory by web service
-        /*$function = 'hubdirectory_get_hubs';
-        $params = array();
-        $serverurl = HUB_HUBDIRECTORYURL . "/local/hubdirectory/webservice/webservices.php";
-        require_once($CFG->dirroot . "/webservice/xmlrpc/lib.php");
-        $xmlrpcclient = new webservice_xmlrpc_client($serverurl, 'publichubdirectory');
-        try {
-            $hubs = $xmlrpcclient->call($function, $params);
-        } catch (Exception $e) {
-            $error = $OUTPUT->notification(get_string('errorhublisting', 'hub', $e->getMessage()));
-            $mform->addElement('static', 'errorhub', '', $error);
-            $hubs = array();
-        }
-
-        //remove moodle.org from the hub list
-        foreach ($hubs as $key => $hub) {
-            if ($hub['url'] == HUB_MOODLEORGHUBURL || $hub['url'] == HUB_OLDMOODLEORGHUBURL) {
-                unset($hubs[$key]);
-            }
-        }
-
-        //Public hub list
-        $options = array();
-        foreach ($hubs as $hub) {
-            //to not display a name longer than 100 character (too big)
-            if (core_text::strlen($hub['name']) > 100) {
-                $hubname = core_text::substr($hub['name'], 0, 100);
-                $hubname = $hubname . "...";
-            } else {
-                $hubname = $hub['name'];
-            }
-            $options[$hub['url']] = $hubname;
-            $mform->addElement('hidden', clean_param($hub['url'], PARAM_ALPHANUMEXT), $hubname);
-            $mform->setType(clean_param($hub['url'], PARAM_ALPHANUMEXT), PARAM_ALPHANUMEXT);
-        }
-        if (!empty($hubs)) {
-            $mform->addElement('select', 'publichub', get_string('publichub', 'hub'),
-                $options, array("size" => 15));
-            $mform->setType('publichub', PARAM_URL);
-        }
-
-        $mform->addElement('static', 'or', '', get_string('orenterprivatehub', 'hub'));
-        */
-
-        //Private hub
         $mform->addElement('text', 'unlistedurl', get_string('privatehuburl', 'tool_customhub'),
             array('class' => 'registration_textfield'));
         $mform->setType('unlistedurl', PARAM_URL);
@@ -106,7 +60,6 @@ class hub_selector_form extends moodleform {
      * Check the unlisted URL is a URL
      */
     function validation($data, $files) {
-        global $CFG;
         $errors = parent::validation($data, $files);
 
         $unlistedurl = $this->_form->_submitValues['unlistedurl'];
