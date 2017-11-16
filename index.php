@@ -192,14 +192,14 @@ if (empty($cancel) and $unregistration and !$confirm) {
         echo $OUTPUT->notification(get_string('unregistrationerror', 'hub', $errormessage));
     }
 
-    echo $OUTPUT->heading(get_string('registerwith', 'hub'));
+    echo $OUTPUT->heading(get_string('registerwith', 'tool_customhub'));
 
     $hubselectorform->display();
 
     if (extension_loaded('xmlrpc')) {
         $hubs = $registrationmanager->get_registered_on_hubs();
         if (!empty($hubs)) {
-            echo $OUTPUT->heading(get_string('registeredon', 'hub'), 3, 'main');
+            echo $OUTPUT->heading(get_string('registeredon', 'tool_customhub'), 3, 'main');
             echo $renderer->registeredonhublisting($hubs);
         }
     } else { //display notice about xmlrpc

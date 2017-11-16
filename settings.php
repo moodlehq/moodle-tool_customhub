@@ -25,6 +25,6 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
-    $ADMIN->add('server', new admin_externalpage('tool_customhub', new lang_string('hubs', 'admin'),
+    $ADMIN->add('server', new admin_externalpage('tool_customhub', new lang_string('hubs', 'tool_customhub'),
         "$CFG->wwwroot/$CFG->admin/tool/customhub/index.php"));
 }

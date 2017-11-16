@@ -23,3 +23,13 @@
  */
 
 $string['pluginname'] = 'Custom hub communication';
+// Deprecated strings from core_admin:
+$string['hubs'] = 'Hubs';
+// Deprecated strings from core_hub:
+$string['selecthub'] = 'Select hub';
+$string['privatehuburl'] = 'Private hub URL';
+$string['registerwith'] = 'Register with a hub';
+$string['privacy'] = 'Privacy';
+$string['privacy_help'] = 'The hub may want to display a list of registered sites. If it does then you can choose whether or not you want to appear on that list.';
+$string['registeredon'] = 'Where your site is registered';
+$string['hub'] = 'Hub';

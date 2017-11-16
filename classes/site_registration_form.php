@@ -138,7 +138,7 @@ class site_registration_form extends moodleform {
         $mform->addElement('select', 'privacy', get_string('siteprivacy', 'hub'), $options);
         $mform->setDefault('privacy', $privacy);
         $mform->setType('privacy', PARAM_ALPHA);
-        $mform->addHelpButton('privacy', 'privacy', 'hub');
+        $mform->addHelpButton('privacy', 'privacy', 'tool_customhub');
         unset($options);
 
         $mform->addElement('textarea', 'description', get_string('sitedesc', 'hub'),

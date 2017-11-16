@@ -45,7 +45,7 @@ class hub_selector_form extends moodleform {
     public function definition() {
         global $CFG, $OUTPUT;
         $mform = & $this->_form;
-        $mform->addElement('header', 'site', get_string('selecthub', 'hub'));
+        $mform->addElement('header', 'site', get_string('selecthub', 'tool_customhub'));
 
         //retrieve the hub list on the hub directory by web service
         /*$function = 'hubdirectory_get_hubs';
@@ -92,14 +92,14 @@ class hub_selector_form extends moodleform {
         */
 
         //Private hub
-        $mform->addElement('text', 'unlistedurl', get_string('privatehuburl', 'hub'),
+        $mform->addElement('text', 'unlistedurl', get_string('privatehuburl', 'tool_customhub'),
             array('class' => 'registration_textfield'));
         $mform->setType('unlistedurl', PARAM_URL);
         $mform->addElement('text', 'password', get_string('password'),
             array('class' => 'registration_textfield'));
         $mform->setType('password', PARAM_RAW);
 
-        $this->add_action_buttons(false, get_string('selecthub', 'hub'));
+        $this->add_action_buttons(false, get_string('selecthub', 'tool_customhub'));
     }
 
     /**

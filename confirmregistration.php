@@ -68,7 +68,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     //display continue button
     $registrationpage = new moodle_url('/admin/tool/customhub/index.php');
-    $continuebutton = $OUTPUT->render(new single_button($registrationpage, get_string('continue', 'hub')));
+    $continuebutton = $OUTPUT->render(new single_button($registrationpage, get_string('continue')));
     $continuebutton = html_writer::tag('div', $continuebutton, array('class' => 'mdl-align'));
     echo $continuebutton;
 

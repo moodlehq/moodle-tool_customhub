@@ -77,7 +77,7 @@ class renderer extends plugin_renderer_base {
     public function registeredonhublisting($hubs) {
         global $CFG;
         $table = new html_table();
-        $table->head = array(get_string('hub', 'hub'), get_string('operation', 'hub'));
+        $table->head = array(get_string('hub', 'tool_customhub'), get_string('operation', 'hub'));
         $table->size = array('80%', '20%');
 
         foreach ($hubs as $hub) {

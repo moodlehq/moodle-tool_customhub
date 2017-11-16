@@ -42,17 +42,18 @@ require_sesskey();
 $huburl = required_param('huburl', PARAM_URL);
 $huburl = rtrim($huburl, "/");
 
-if ($huburl == HUB_MOODLEORGHUBURL) { // register to Moodle.org
-    die(); // TODO
-    admin_externalpage_setup('registrationmoodleorg');
-} else { //register to a hub
-    admin_externalpage_setup('tool_customhub');
+admin_externalpage_setup('tool_customhub');
+
+$registrationmanager = new tool_customhub\registration_manager();
+
+if ($registrationmanager->is_moodlenet($huburl)) {
+    // Register with Moodle.org.
+    redirect(new moodle_url('/admin/registration/index.php'));
 }
 
 $password = optional_param('password', '', PARAM_TEXT);
 $hubname = optional_param('hubname', '', PARAM_TEXT);
 
-$registrationmanager = new tool_customhub\registration_manager();
 
 $registeredhub = $registrationmanager->get_registeredhub($huburl);
 

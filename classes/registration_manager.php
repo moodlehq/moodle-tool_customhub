@@ -303,4 +303,8 @@ class registration_manager {
         return $privacystring;
     }
 
+    public function is_moodlenet($huburl) {
+        $hostname = parse_url(strtolower($huburl), PHP_URL_HOST);
+        return ($hostname === 'moodle.net' || $hostname === 'hub.moodle.org');
+    }
 }
