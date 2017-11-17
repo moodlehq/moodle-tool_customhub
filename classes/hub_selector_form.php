@@ -24,12 +24,7 @@
 
 namespace tool_customhub;
 
-use stdClass;
-use Exception;
-use moodle_exception;
 use moodleform;
-use webservice_xmlrpc_client;
-use core_text;
 
 defined('MOODLE_INTERNAL') || die();
 

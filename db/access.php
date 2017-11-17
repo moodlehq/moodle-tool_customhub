@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Сapabilities definition.
  *
  * @package    tool_customhub
  * @copyright  2017 Marina Glancy
@@ -24,6 +24,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017111602; // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2017110800; // Requires this Moodle version.
-$plugin->component = 'tool_customhub'; // Full name of the plugin (used for diagnostics).
+$capabilities = array(
+
+    'tool/customhub:publishcourse' => array(
+        'captype' => 'write',
+        'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'manager' => CAP_ALLOW
+        ),
+        'clonepermissionsfrom' => 'moodle/course:publish'
+    ),
+);

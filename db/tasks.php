@@ -15,15 +15,30 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Definition of core scheduled tasks.
  *
- * @package    tool_customhub
- * @copyright  2017 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * The handlers defined on this file are processed and registered into
+ * the Moodle DB after any install or upgrade operation. All plugins
+ * support this.
+ *
+ * @package   core
+ * @category  task
+ * @copyright 2013 Damyon Wiese
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017111602; // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2017110800; // Requires this Moodle version.
-$plugin->component = 'tool_customhub'; // Full name of the plugin (used for diagnostics).
+/* List of handlers */
+
+$tasks = array(
+    array(
+        'classname' => 'tool_customhub\task\registration_cron_task',
+        'blocking' => 0,
+        'minute' => 'R',
+        'hour' => 'R',
+        'day' => '*',
+        'dayofweek' => 'R',
+        'month' => '*'
+    ),
+);

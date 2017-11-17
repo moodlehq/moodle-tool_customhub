@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Adds this plugin to the admin menu.
+ * Custom hub registration.
  *
  * @package    tool_customhub
  * @copyright  2017 Marina Glancy
@@ -194,7 +194,7 @@ if (empty($cancel) and $unregistration and !$confirm) {
         }
     } else { //display notice about xmlrpc
         $xmlrpcnotification = $OUTPUT->doc_link('admin/environment/php_extension/xmlrpc', '');
-        $xmlrpcnotification .= get_string('xmlrpcdisabledregistration', 'hub');
+        $xmlrpcnotification .= get_string('xmlrpcdisabledregistration', 'tool_customhub');
         echo $OUTPUT->notification($xmlrpcnotification);
     }
 }

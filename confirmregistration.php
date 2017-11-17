@@ -75,7 +75,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
     if (!extension_loaded('xmlrpc')) {
         //display notice about xmlrpc
         $xmlrpcnotification = $OUTPUT->doc_link('admin/environment/php_extension/xmlrpc', '');
-        $xmlrpcnotification .= get_string('xmlrpcdisabledregistration', 'hub');
+        $xmlrpcnotification .= get_string('xmlrpcdisabledregistration', 'tool_customhub');
         echo $OUTPUT->notification($xmlrpcnotification);
     }
 

@@ -47,6 +47,7 @@ class site_registration_form extends moodleform {
 
     public function definition() {
         global $CFG, $DB;
+        require_once($CFG->dirroot.'/'.$CFG->admin.'/tool/customhub/constants.php');
 
         $strrequired = get_string('required');
         $mform = & $this->_form;
@@ -132,9 +133,9 @@ class site_registration_form extends moodleform {
 
         $options = array();
         $registrationmanager = new registration_manager();
-        $options[\core\hub\registration::HUB_SITENOTPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITENOTPUBLISHED);
-        $options[\core\hub\registration::HUB_SITENAMEPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITENAMEPUBLISHED);
-        $options[\core\hub\registration::HUB_SITELINKPUBLISHED] = $registrationmanager->get_site_privacy_string(\core\hub\registration::HUB_SITELINKPUBLISHED);
+        $options[HUB_SITENOTPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITENOTPUBLISHED);
+        $options[HUB_SITENAMEPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITENAMEPUBLISHED);
+        $options[HUB_SITELINKPUBLISHED] = $registrationmanager->get_site_privacy_string(HUB_SITELINKPUBLISHED);
         $mform->addElement('select', 'privacy', get_string('siteprivacy', 'hub'), $options);
         $mform->setDefault('privacy', $privacy);
         $mform->setType('privacy', PARAM_ALPHA);

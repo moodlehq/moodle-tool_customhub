@@ -15,15 +15,37 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * A scheduled task.
  *
  * @package    tool_customhub
  * @copyright  2017 Marina Glancy
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace tool_customhub\task;
 
-defined('MOODLE_INTERNAL') || die();
+use core\task\scheduled_task;
 
-$plugin->version   = 2017111602; // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2017110800; // Requires this Moodle version.
-$plugin->component = 'tool_customhub'; // Full name of the plugin (used for diagnostics).
+/**
+ * Simple task to run the registration cron.
+ */
+class registration_cron_task extends scheduled_task {
+
+    /**
+     * Get a descriptive name for this task (shown to admins).
+     *
+     * @return string
+     */
+    public function get_name() {
+        return get_string('taskregistrationcron', 'tool_customhub');
+    }
+
+    /**
+     * Do the job.
+     * Throw exceptions on errors (the job will be retried).
+     */
+    public function execute() {
+        $registrationmanager = new \tool_customhub\registration_manager();
+        $registrationmanager->cron();
+    }
+
+}
