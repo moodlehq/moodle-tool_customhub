@@ -39,7 +39,7 @@ $registeredhubs = $registrationmanager->get_registered_on_hubs();
 if (empty($registeredhubs)) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('publishon', 'tool_customhub'), 3, 'main');
-    echo $OUTPUT->box(get_string('notregisteredonhub', 'hub'));
+    echo $OUTPUT->box(get_string('notregisteredonhub', 'tool_customhub'));
     echo $OUTPUT->footer();
     die();
 }

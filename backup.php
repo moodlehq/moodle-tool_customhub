@@ -74,7 +74,7 @@ if ($backup->get_stage() == backup_ui::STAGE_FINAL) {
 if ($backup->get_stage() !== backup_ui::STAGE_COMPLETE) {
     $renderer = $PAGE->get_renderer('core', 'backup');
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('publishcourseon', 'hub', !empty($hubname)?$hubname:$huburl), 3, 'main');
+    echo $OUTPUT->heading(get_string('publishcourseon', 'tool_customhub', !empty($hubname)?$hubname:$huburl), 3, 'main');
     if ($backup->enforce_changed_dependencies()) {
         debugging('Your settings have been altered due to unmet dependencies', DEBUG_DEVELOPER);
     }

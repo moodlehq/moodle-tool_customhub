@@ -48,8 +48,8 @@ class site_clean_registration_data_form extends moodleform {
         $hubname = $this->_customdata['hubname'];
 
 
-        $unregisterlabel = get_string('forceunregister', 'hub');
-        $mform->addElement('static', '', get_string('warning', 'hub'), get_string('forceunregisterconfirmation', 'hub', $hubname));
+        $unregisterlabel = get_string('forceunregister', 'tool_customhub');
+        $mform->addElement('static', 'x', get_string('warning', 'tool_customhub'), get_string('forceunregisterconfirmation', 'tool_customhub', $hubname));
 
         $mform->addElement('hidden', 'confirm', 1);
         $mform->setType('confirm', PARAM_INT);

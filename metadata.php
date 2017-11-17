@@ -49,11 +49,11 @@ $PAGE->set_heading($course->fullname);
 //check that the PHP xmlrpc extension is enabled
 if (!extension_loaded('xmlrpc')) {
     $errornotification = $OUTPUT->doc_link('admin/environment/php_extension/xmlrpc', '');
-    $errornotification .= get_string('xmlrpcdisabledpublish', 'hub');
+    $errornotification .= get_string('xmlrpcdisabledpublish', 'tool_customhub');
     $context = context_course::instance($course->id);
     $shortname = format_string($course->shortname, true, array('context' => $context));
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('publishcourse', 'hub', $shortname), 3, 'main');
+    echo $OUTPUT->heading(get_string('publishcourse', 'tool_customhub', $shortname), 3, 'main');
     echo $OUTPUT->notification($errornotification);
     echo $OUTPUT->footer();
     die();
@@ -247,7 +247,7 @@ if (!empty($fromform)) {
 /////// OUTPUT SECTION /////////////
 
 echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('publishcourseon', 'hub', !empty($hubname) ? $hubname : $huburl), 3, 'main');
+echo $OUTPUT->heading(get_string('publishcourseon', 'tool_customhub', !empty($hubname) ? $hubname : $huburl), 3, 'main');
 
 //display hub information (logo, name, description)
 $function = 'hub_get_info';

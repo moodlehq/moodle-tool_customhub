@@ -90,7 +90,7 @@ class course_publication_form extends moodleform {
                 $result = $xmlrpcclient->call($function, $params);
                 $publishedcourses = $result['courses'];
             } catch (Exception $e) {
-                $error = $OUTPUT->notification(get_string('errorcourseinfo', 'hub', $e->getMessage()));
+                $error = $OUTPUT->notification(get_string('errorcourseinfo', 'tool_customhub', $e->getMessage()));
                 $mform->addElement('static', 'errorhub', '', $error);
             }
         }
@@ -164,7 +164,7 @@ class course_publication_form extends moodleform {
         $mform->setType('id', PARAM_INT);
 
         if ($share) {
-            $buttonlabel = get_string('shareon', 'hub', !empty($hubname) ? $hubname : $huburl);
+            $buttonlabel = get_string('shareon', 'tool_customhub', !empty($hubname) ? $hubname : $huburl);
 
             $mform->addElement('hidden', 'share', $share);
             $mform->setType('share', PARAM_BOOL);
@@ -177,9 +177,9 @@ class course_publication_form extends moodleform {
 
         if ($advertise) {
             if (empty($publishedcourses)) {
-                $buttonlabel = get_string('advertiseon', 'hub', !empty($hubname) ? $hubname : $huburl);
+                $buttonlabel = get_string('advertiseon', 'tool_customhub', !empty($hubname) ? $hubname : $huburl);
             } else {
-                $buttonlabel = get_string('readvertiseon', 'hub', !empty($hubname) ? $hubname : $huburl);
+                $buttonlabel = get_string('readvertiseon', 'tool_customhub', !empty($hubname) ? $hubname : $huburl);
             }
             $mform->addElement('hidden', 'advertise', $advertise);
             $mform->setType('advertise', PARAM_BOOL);

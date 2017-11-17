@@ -100,7 +100,7 @@ if (empty($cancel) and $unregistration and $confirm and confirm_sesskey()) {
             } catch (Exception $e) {
                 $errormessage = $e->getMessage();
                 $errormessage .= html_writer::empty_tag('br') .
-                    get_string('errorunpublishcourses', 'hub');
+                    get_string('errorunpublishcourses', 'tool_customhub');
                 $confirm = false;
                 $cleanregdata = 1;
             }
@@ -137,11 +137,11 @@ if (empty($cancel) and $unregistration and !$confirm) {
 
     //do not check sesskey if confirm = false because this script is linked into email message
     if (!empty($errormessage)) {
-        echo $OUTPUT->notification(get_string('unregistrationerror', 'hub', $errormessage));
+        echo $OUTPUT->notification(get_string('unregistrationerror', 'tool_customhub', $errormessage));
     }
 
     $hub = $registrationmanager->get_registeredhub($huburl);
-    echo $OUTPUT->heading(get_string('unregisterfrom', 'hub', $hub->hubname), 3, 'main');
+    echo $OUTPUT->heading(get_string('unregisterfrom', 'tool_customhub', $hub->hubname), 3, 'main');
     if ($cleanregdata) {
         $siteunregistrationform = new tool_customhub\site_clean_registration_data_form('',
             array('huburl' => $huburl, 'hubname' => $hub->hubname));
@@ -179,7 +179,7 @@ if (empty($cancel) and $unregistration and !$confirm) {
 
     //do not check sesskey if confirm = false because this script is linked into email message
     if (!empty($errormessage)) {
-        echo $OUTPUT->notification(get_string('unregistrationerror', 'hub', $errormessage));
+        echo $OUTPUT->notification(get_string('unregistrationerror', 'tool_customhub', $errormessage));
     }
 
     echo $OUTPUT->heading(get_string('registerwith', 'tool_customhub'));

@@ -120,7 +120,7 @@ if ($update and confirm_sesskey()) {
         $result = $xmlrpcclient->call($function, $params);
         $registrationmanager->update_registeredhub($registeredhub); // To update timemodified.
     } catch (Exception $e) {
-        $error = $OUTPUT->notification(get_string('errorregistration', 'hub', $e->getMessage()));
+        $error = $OUTPUT->notification(get_string('errorregistration', 'tool_customhub', $e->getMessage()));
     }
 }
 

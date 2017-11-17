@@ -122,7 +122,7 @@ class site_registration_form extends moodleform {
         $mform->setType('password', PARAM_RAW);
 
         //the input parameters
-        $mform->addElement('header', 'moodle', get_string('registrationinfo', 'hub'));
+        $mform->addElement('header', 'moodle', get_string('registrationinfo', 'tool_customhub'));
 
         $mform->addElement('text', 'name', get_string('sitename', 'hub'),
             array('class' => 'registration_textfield'));
@@ -307,12 +307,12 @@ class site_registration_form extends moodleform {
         $hubregistered = $registrationmanager->get_registeredhub($huburl);
 
         if (!empty($hubregistered)) {
-            $buttonlabel = get_string('updatesite', 'hub',
+            $buttonlabel = get_string('updatesite', 'tool_customhub',
                 !empty($hubname) ? $hubname : $huburl);
             $mform->addElement('hidden', 'update', true);
             $mform->setType('update', PARAM_BOOL);
         } else {
-            $buttonlabel = get_string('registersite', 'hub',
+            $buttonlabel = get_string('registersite', 'tool_customhub',
                 !empty($hubname) ? $hubname : $huburl);
         }
 

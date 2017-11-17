@@ -44,24 +44,12 @@ use stdClass;
 class renderer extends plugin_renderer_base {
 
     /**
-     * Display a box message confirming a site registration (add or update)
-     * @param string $confirmationmessage
-     * @return string
-     */
-    public function registration_confirmation($confirmationmessage) {
-        $linktositelist = html_writer::tag('a', get_string('sitelist', 'hub'),
-            array('href' => new moodle_url('/local/hub/index.php')));
-        $message = $confirmationmessage . html_writer::empty_tag('br') . $linktositelist;
-        return $this->output->box($message);
-    }
-
-    /**
      * Display the listing of registered on hub
      */
     public function registeredonhublisting($hubs) {
         global $CFG;
         $table = new html_table();
-        $table->head = array(get_string('hub', 'tool_customhub'), get_string('operation', 'hub'));
+        $table->head = array(get_string('hub', 'tool_customhub'), get_string('operation', 'tool_customhub'));
         $table->size = array('80%', '20%');
 
         foreach ($hubs as $hub) {
@@ -75,7 +63,7 @@ class renderer extends plugin_renderer_base {
                 array('sesskey' => sesskey(), 'huburl' => $hub->huburl,
                     'unregistration' => 1));
             $unregisterbutton = new single_button($unregisterhuburl,
-                get_string('unregister', 'hub'));
+                get_string('unregister', 'tool_customhub'));
             $unregisterbutton->class = 'centeredbutton';
             $unregisterbuttonhtml = $this->output->render($unregisterbutton);
 
@@ -213,7 +201,7 @@ class renderer extends plugin_renderer_base {
             $optionsyes), get_string('unpublish', 'hub'), 'post');
         $formcancel = new single_button(new moodle_url("/admin/tool/customhub/publishcourse.php",
             $optionsno), get_string('cancel'), 'get');
-        return $this->output->confirm(get_string('unpublishconfirmation', 'hub', $publication),
+        return $this->output->confirm(get_string('unpublishconfirmation', 'tool_customhub', $publication),
             $formcontinue, $formcancel);
     }
 

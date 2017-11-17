@@ -56,7 +56,7 @@ $registeredhub = $registrationmanager->get_unconfirmedhub($url);
 if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('registrationconfirmed', 'hub'), 3, 'main');
+    echo $OUTPUT->heading(get_string('registrationconfirmed', 'tool_customhub'), 3, 'main');
 
     $registeredhub->token = $newtoken;
     $registeredhub->confirmed = 1;
@@ -64,7 +64,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
     $registrationmanager->update_registeredhub($registeredhub);
 
     // Display notification message.
-    echo $OUTPUT->notification(get_string('registrationconfirmedon', 'hub'), 'notifysuccess');
+    echo $OUTPUT->notification(get_string('registrationconfirmedon', 'tool_customhub'), 'notifysuccess');
 
     //display continue button
     $registrationpage = new moodle_url('/admin/tool/customhub/index.php');

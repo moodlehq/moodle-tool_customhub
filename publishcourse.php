@@ -46,9 +46,9 @@ $PAGE->set_heading($course->fullname);
 //check that the PHP xmlrpc extension is enabled
 if (!extension_loaded('xmlrpc')) {
     $notificationerror = $OUTPUT->doc_link('admin/environment/php_extension/xmlrpc', '');
-    $notificationerror .= get_string('xmlrpcdisabledpublish', 'hub');
+    $notificationerror .= get_string('xmlrpcdisabledpublish', 'tool_customhub');
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('publishcourse', 'hub', $shortname), 3, 'main');
+    echo $OUTPUT->heading(get_string('publishcourse', 'tool_customhub', $shortname), 3, 'main');
     echo $OUTPUT->notification($notificationerror);
     echo $OUTPUT->footer();
     die();
@@ -63,7 +63,7 @@ if (!empty($updatestatusid) and confirm_sesskey()) {
     //get the communication token from the publication
     $hub = $publicationmanager->get_registeredhub_by_publication($updatestatusid);
     if (empty($hub)) {
-        $confirmmessage = $OUTPUT->notification(get_string('nocheckstatusfromunreghub', 'hub'));
+        $confirmmessage = $OUTPUT->notification(get_string('nocheckstatusfromunreghub', 'tool_customhub'));
     } else {
         //get all site courses registered on this hub
         $function = 'hub_get_courses';
@@ -88,7 +88,7 @@ if (!empty($updatestatusid) and confirm_sesskey()) {
                 $msgparams->id = $sitecourse['id'];
                 $msgparams->hubname = html_writer::tag('a', $hub->hubname, array('href' => $hub->huburl));
                 $confirmmessage .= $OUTPUT->notification(
-                    get_string('detectednotexistingpublication', 'hub', $msgparams));
+                    get_string('detectednotexistingpublication', 'tool_customhub', $msgparams));
             }
         }
     }
@@ -100,7 +100,7 @@ $registeredhubs = $registrationmanager->get_registered_on_hubs();
 if (empty($registeredhubs)) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('publishon', 'tool_customhub'), 3, 'main');
-    echo $OUTPUT->box(get_string('notregisteredonhub', 'hub'));
+    echo $OUTPUT->box(get_string('notregisteredonhub', 'tool_customhub'));
     echo $OUTPUT->footer();
     die();
 }
@@ -139,13 +139,13 @@ if (!empty($cancel) and confirm_sesskey()) {
         $publicationmanager->delete_publication($publicationid);
 
         //display confirmation message
-        $confirmmessage = $OUTPUT->notification(get_string('courseunpublished', 'hub', $publication), 'notifysuccess');
+        $confirmmessage = $OUTPUT->notification(get_string('courseunpublished', 'tool_customhub', $publication), 'notifysuccess');
 
     } else {
         //display confirmation page for unpublishing
 
         echo $OUTPUT->header();
-        echo $OUTPUT->heading(get_string('unpublishcourse', 'hub', $shortname), 3, 'main');
+        echo $OUTPUT->heading(get_string('unpublishcourse', 'tool_customhub', $shortname), 3, 'main');
         echo $renderer->confirmunpublishing($publication);
         echo $OUTPUT->footer();
         die();
@@ -163,12 +163,12 @@ if (optional_param('published', 0, PARAM_TEXT)) {
 echo $OUTPUT->header();
 echo $confirmmessage;
 
-echo $OUTPUT->heading(get_string('publishcourse', 'hub', $shortname), 3, 'main');
+echo $OUTPUT->heading(get_string('publishcourse', 'tool_customhub', $shortname), 3, 'main');
 echo $renderer->publicationselector($course->id);
 
 $publications = $publicationmanager->get_course_publications($course->id);
 if (!empty($publications)) {
-    echo $OUTPUT->heading(get_string('publishedon', 'hub'), 3, 'main');
+    echo $OUTPUT->heading(get_string('publishedon', 'tool_customhub'), 3, 'main');
     echo $renderer->publishhublisting($course->id, $publications);
 }
 

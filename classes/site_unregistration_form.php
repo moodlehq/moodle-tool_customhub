@@ -42,17 +42,17 @@ class site_unregistration_form extends moodleform {
 
     public function definition() {
         $mform = & $this->_form;
-        $mform->addElement('header', 'site', get_string('unregister', 'hub'));
+        $mform->addElement('header', 'site', get_string('unregister', 'tool_customhub'));
 
         $huburl = $this->_customdata['huburl'];
         $hubname = $this->_customdata['hubname'];
 
-        $unregisterlabel = get_string('unregister', 'hub');
+        $unregisterlabel = get_string('unregister', 'tool_customhub');
         $mform->addElement('checkbox', 'unpublishalladvertisedcourses', '',
-            ' ' . get_string('unpublishalladvertisedcourses', 'hub'));
+            ' ' . get_string('unpublishalladvertisedcourses', 'tool_customhub'));
         $mform->setType('unpublishalladvertisedcourses', PARAM_INT);
         $mform->addElement('checkbox', 'unpublishalluploadedcourses', '',
-            ' ' . get_string('unpublishalluploadedcourses', 'hub'));
+            ' ' . get_string('unpublishalluploadedcourses', 'tool_customhub'));
         $mform->setType('unpublishalluploadedcourses', PARAM_INT);
 
         $mform->addElement('hidden', 'confirm', 1);
