@@ -46,3 +46,10 @@ function tool_customhub_extend_navigation_course($navigation, $course, $context)
         $navigation->add_node($node, $beforekey);
     }
 }
+
+/**
+ * Callback called from /admin/registration/confirmregistration.php
+ */
+function tool_customhub_confirm_registration() {
+    redirect(new moodle_url('/admin/tool/customhub/confirmregistration.php', $_GET));
+}

@@ -33,7 +33,8 @@ $string['sharepublication_help'] = 'Uploading this course to a community hub ser
 $string['removefromhub'] = 'Remove from hub';
 $string['taskregistrationcron'] = 'Update registration on custom hubs';
 $string['xmlrpcdisabledregistration'] = 'The XML-RPC extension is not enabled on the server. You will not be able to unregister or update your registration until you enable it.';
-
+$string['moodlenetnotsupported'] = 'Registration on moodle.net is not supported by this tool.';
+$string['existingscreenshotnumber'] = '{$a} existing screenshots. You will be able to see these screenshots on this page, only once the hub administrator enables your course.';
 
 // Deprecated strings from core_admin:
 $string['hubs'] = 'Hubs';

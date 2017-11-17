@@ -305,7 +305,7 @@ class course_publication_form extends moodleform {
                         array('class' => 'coursescreenshot',
                             'id' => 'image-' . $hubcourseid));
                 } else {
-                    $screenshothtml = get_string('existingscreenshotnumber', 'hub', $screenshotsnumber);
+                    $screenshothtml = get_string('existingscreenshotnumber', 'tool_customhub', $screenshotsnumber);
                 }
                 $mform->addElement('static', 'existingscreenshots', get_string('existingscreenshots', 'hub'), $screenshothtml);
                 $mform->addHelpButton('existingscreenshots', 'deletescreenshots', 'hub');
