@@ -280,13 +280,13 @@ class registration_manager {
     public function get_site_privacy_string($privacy) {
         switch ($privacy) {
             case \core\hub\registration::HUB_SITENOTPUBLISHED:
-                $privacystring = get_string('siteprivacynotpublished', 'hub');
+                $privacystring = get_string('siteprivacynotpublished', 'tool_customhub');
                 break;
             case \core\hub\registration::HUB_SITENAMEPUBLISHED:
-                $privacystring = get_string('siteprivacypublished', 'hub');
+                $privacystring = get_string('siteprivacypublished', 'tool_customhub');
                 break;
             case \core\hub\registration::HUB_SITELINKPUBLISHED:
-                $privacystring = get_string('siteprivacylinked', 'hub');
+                $privacystring = get_string('siteprivacylinked', 'tool_customhub');
                 break;
         }
         if (empty($privacystring)) {

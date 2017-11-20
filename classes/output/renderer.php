@@ -108,8 +108,8 @@ class renderer extends plugin_renderer_base {
     public function publishhublisting($courseid, $publications) {
         global $CFG;
         $table = new html_table();
-        $table->head = array(get_string('type', 'hub'), get_string('hub', 'tool_customhub'),
-            get_string('date'), get_string('status', 'hub'), get_string('operation', 'hub'));
+        $table->head = array(get_string('type', 'tool_customhub'), get_string('hub', 'tool_customhub'),
+            get_string('date'), get_string('status', 'tool_customhub'), get_string('operation', 'tool_customhub'));
         $table->size = array('10%', '40%', '20%', '%10', '%15');
 
         $brtag = html_writer::empty_tag('br');
@@ -133,7 +133,7 @@ class renderer extends plugin_renderer_base {
                     'huburl' => $publication->huburl, 'hubname' => $publication->hubname,
                     'share' => !$publication->enrollable, 'advertise' => $publication->enrollable);
                 $updateurl = new moodle_url("/admin/tool/customhub/metadata.php", $params);
-                $updatebutton = new single_button($updateurl, get_string('update', 'hub'));
+                $updatebutton = new single_button($updateurl, get_string('update', 'tool_customhub'));
                 $updatebutton->class = 'centeredbutton';
                 $updatebuttonhtml = $this->output->render($updatebutton);
 
@@ -148,27 +148,27 @@ class renderer extends plugin_renderer_base {
             //if the publication check time if bigger than May 2010, it has been checked
             if ($publication->timechecked > 1273127954) {
                 if ($publication->status == 0) {
-                    $status = get_string('statusunpublished', 'hub');
+                    $status = get_string('statusunpublished', 'tool_customhub');
                 } else {
-                    $status = get_string('statuspublished', 'hub');
+                    $status = get_string('statuspublished', 'tool_customhub');
                 }
 
-                $status .= $brtag . html_writer::tag('a', get_string('updatestatus', 'hub'),
+                $status .= $brtag . html_writer::tag('a', get_string('updatestatus', 'tool_customhub'),
                         array('href' => $CFG->wwwroot . '/'. $CFG->admin .'/tool/customhub/publishcourse.php?id='
                             . $courseid . "&updatestatusid=" . $publication->id
                             . "&sesskey=" . sesskey())) .
-                    $brtag . get_string('lasttimechecked', 'hub') . ": "
+                    $brtag . get_string('lasttimechecked', 'tool_customhub') . ": "
                     . format_time(time() - $publication->timechecked);
             } else {
-                $status = get_string('neverchecked', 'hub') . $brtag
-                    . html_writer::tag('a', get_string('updatestatus', 'hub'),
+                $status = get_string('neverchecked', 'tool_customhub') . $brtag
+                    . html_writer::tag('a', get_string('updatestatus', 'tool_customhub'),
                         array('href' => $CFG->wwwroot . '/'. $CFG->admin .'/tool/customhub/publishcourse.php?id='
                             . $courseid . "&updatestatusid=" . $publication->id
                             . "&sesskey=" . sesskey()));
             }
             //add button cells
             $cells = array($publication->enrollable ?
-                get_string('advertised', 'hub') : get_string('shared', 'hub'),
+                get_string('advertised', 'tool_customhub') : get_string('shared', 'tool_customhub'),
                 $hubname, userdate($publication->timepublished,
                     get_string('strftimedatetimeshort')), $status, $operations);
             $row = new html_table_row($cells);
@@ -198,7 +198,7 @@ class renderer extends plugin_renderer_base {
         $publication->hubname = html_writer::tag('a', $publication->hubname,
             array('href' => $publication->huburl));
         $formcontinue = new single_button(new moodle_url("/admin/tool/customhub/publishcourse.php",
-            $optionsyes), get_string('unpublish', 'hub'), 'post');
+            $optionsyes), get_string('unpublish', 'tool_customhub'), 'post');
         $formcancel = new single_button(new moodle_url("/admin/tool/customhub/publishcourse.php",
             $optionsno), get_string('cancel'), 'get');
         return $this->output->confirm(get_string('unpublishconfirmation', 'tool_customhub', $publication),
@@ -213,7 +213,7 @@ class renderer extends plugin_renderer_base {
     public function sendingbackupinfo($backupfile) {
         $sizeinfo = new stdClass();
         $sizeinfo->total = number_format($backupfile->get_filesize() / 1000000, 2);
-        $html = html_writer::tag('div', get_string('sendingsize', 'hub', $sizeinfo),
+        $html = html_writer::tag('div', get_string('sendingsize', 'tool_customhub', $sizeinfo),
             array('class' => 'courseuploadtextinfo'));
         return $html;
     }
@@ -226,7 +226,7 @@ class renderer extends plugin_renderer_base {
      * @return $html string
      */
     public function sentbackupinfo($id, $huburl, $hubname) {
-        $html = html_writer::tag('div', get_string('sent', 'hub'),
+        $html = html_writer::tag('div', get_string('sent', 'tool_customhub'),
             array('class' => 'courseuploadtextinfo'));
         $publishindexurl = new moodle_url('/admin/tool/customhub/publishcourse.php',
             array('sesskey' => sesskey(), 'id' => $id,

@@ -151,7 +151,7 @@ class course_publication_form extends moodleform {
         }
 
         //the input parameters
-        $mform->addElement('header', 'moodle', get_string('publicationinfo', 'hub'));
+        $mform->addElement('header', 'moodle', get_string('publicationinfo', 'tool_customhub'));
 
         $mform->addElement('text', 'name', get_string('coursename', 'hub'),
             array('class' => 'metadatatext'));

@@ -154,7 +154,7 @@ if (!empty($cancel) and confirm_sesskey()) {
 
 //check if a course was published
 if (optional_param('published', 0, PARAM_TEXT)) {
-    $confirmmessage = $OUTPUT->notification(get_string('coursepublished', 'hub',
+    $confirmmessage = $OUTPUT->notification(get_string('coursepublished', 'tool_customhub',
         empty($hubname)?$huburl:$hubname), 'notifysuccess');
 }
 

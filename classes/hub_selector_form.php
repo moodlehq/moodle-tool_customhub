@@ -60,7 +60,7 @@ class hub_selector_form extends moodleform {
         $unlistedurl = $this->_form->_submitValues['unlistedurl'];
 
         if (empty($unlistedurl)) {
-            $errors['unlistedurl'] = get_string('badurlformat', 'hub');
+            $errors['unlistedurl'] = get_string('badurlformat', 'tool_customhub');
         }
 
         return $errors;

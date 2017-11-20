@@ -170,7 +170,7 @@ echo $OUTPUT->header();
 //Display update notification result
 if (!empty($registeredhub->confirmed)) {
     if (!empty($result)) {
-        echo $OUTPUT->notification(get_string('siteregistrationupdated', 'hub'), 'notifysuccess');
+        echo $OUTPUT->notification(get_string('siteregistrationupdated', 'tool_customhub'), 'notifysuccess');
     }
 }
 

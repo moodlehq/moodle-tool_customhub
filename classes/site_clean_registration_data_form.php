@@ -42,7 +42,7 @@ class site_clean_registration_data_form extends moodleform {
 
     public function definition() {
         $mform = & $this->_form;
-        $mform->addElement('header', 'site', get_string('unregister', 'hub'));
+        $mform->addElement('header', 'site', get_string('unregister', 'tool_customhub'));
 
         $huburl = $this->_customdata['huburl'];
         $hubname = $this->_customdata['hubname'];
