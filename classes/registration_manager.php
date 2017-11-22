@@ -28,6 +28,7 @@ use stdClass;
 use Exception;
 use moodle_exception;
 use webservice_xmlrpc_client;
+use moodle_url;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -129,11 +130,14 @@ class registration_manager {
      * Get a hub on which the site is registered for a given url
      * Mostly use to check if the site is registered on a specific hub
      * @param string $huburl
+     * @param bool $allowmoodlenet
      * @return stdClass object the  hub
      */
-    public function get_registeredhub($huburl) {
+    public function get_registeredhub($huburl, $allowmoodlenet = false) {
         global $DB;
-        $this->is_moodlenet($huburl, true);
+        if (!$allowmoodlenet) {
+            $this->is_moodlenet($huburl, true);
+        }
         return $DB->get_record('registration_hubs', ['huburl' => $huburl, 'confirmed' => 1]);
     }
 
