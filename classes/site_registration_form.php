@@ -253,53 +253,53 @@ class site_registration_form extends moodleform {
         $issuedbadges = $DB->count_records('badge_issued');
 
         $mform->addElement('checkbox', 'courses', get_string('sendfollowinginfo', 'tool_customhub'),
-            " " . get_string('coursesnumber', 'hub', $coursecount));
+            " " . get_string('coursesnumber', 'tool_customhub', $coursecount));
         $mform->setDefault('courses', $coursesnumber != -1);
         $mform->setType('courses', PARAM_INT);
         $mform->addHelpButton('courses', 'sendfollowinginfo', 'tool_customhub');
 
         $mform->addElement('checkbox', 'users', '',
-            " " . get_string('usersnumber', 'hub', $usercount));
+            " " . get_string('usersnumber', 'tool_customhub', $usercount));
         $mform->setDefault('users', $usersnumber != -1);
         $mform->setType('users', PARAM_INT);
 
         $mform->addElement('checkbox', 'roleassignments', '',
-            " " . get_string('roleassignmentsnumber', 'hub', $roleassigncount));
+            " " . get_string('roleassignmentsnumber', 'tool_customhub', $roleassigncount));
         $mform->setDefault('roleassignments', $roleassignmentsnumber != -1);
         $mform->setType('roleassignments', PARAM_INT);
 
         $mform->addElement('checkbox', 'posts', '',
-            " " . get_string('postsnumber', 'hub', $postcount));
+            " " . get_string('postsnumber', 'tool_customhub', $postcount));
         $mform->setDefault('posts', $postsnumber != -1);
         $mform->setType('posts', PARAM_INT);
 
         $mform->addElement('checkbox', 'questions', '',
-            " " . get_string('questionsnumber', 'hub', $questioncount));
+            " " . get_string('questionsnumber', 'tool_customhub', $questioncount));
         $mform->setDefault('questions', $questionsnumber != -1);
         $mform->setType('questions', PARAM_INT);
 
         $mform->addElement('checkbox', 'resources', '',
-            " " . get_string('resourcesnumber', 'hub', $resourcecount));
+            " " . get_string('resourcesnumber', 'tool_customhub', $resourcecount));
         $mform->setDefault('resources', $resourcesnumber != -1);
         $mform->setType('resources', PARAM_INT);
 
         $mform->addElement('checkbox', 'badges', '',
-            " " . get_string('badgesnumber', 'hub', $badges));
+            " " . get_string('badgesnumber', 'tool_customhub', $badges));
         $mform->setDefault('badges', $badgesnumber != -1);
         $mform->setType('badges', PARAM_INT);
 
         $mform->addElement('checkbox', 'issuedbadges', '',
-            " " . get_string('issuedbadgesnumber', 'hub', $issuedbadges));
+            " " . get_string('issuedbadgesnumber', 'tool_customhub', $issuedbadges));
         $mform->setDefault('issuedbadges', $issuedbadgesnumber != -1);
         $mform->setType('issuedbadges', PARAM_INT);
 
         $mform->addElement('checkbox', 'participantnumberaverage', '',
-            " " . get_string('participantnumberaverage', 'hub', $participantnumberaverage));
+            " " . get_string('participantnumberaverage', 'tool_customhub', $participantnumberaverage));
         $mform->setDefault('participantnumberaverage', $participantnumberaveragecfg != -1);
         $mform->setType('participantnumberaverage', PARAM_FLOAT);
 
         $mform->addElement('checkbox', 'modulenumberaverage', '',
-            " " . get_string('modulenumberaverage', 'hub', $modulenumberaverage));
+            " " . get_string('modulenumberaverage', 'tool_customhub', $modulenumberaverage));
         $mform->setDefault('modulenumberaverage', $modulenumberaveragecfg != -1);
         $mform->setType('modulenumberaverage', PARAM_FLOAT);
 

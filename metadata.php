@@ -186,12 +186,12 @@ if (!empty($fromform)) {
     try {
         $courseids = $xmlrpcclient->call($function, $params);
     } catch (Exception $e) {
-        throw new moodle_exception('errorcoursepublish', 'hub',
+        throw new moodle_exception('errorcoursepublish', 'tool_customhub',
             new moodle_url('/course/view.php', array('id' => $id)), $e->getMessage());
     }
 
     if (count($courseids) != 1) {
-        throw new moodle_exception('errorcoursewronglypublished', 'hub');
+        throw new moodle_exception('errorcoursewronglypublished', 'tool_customhub');
     }
 
     //save the record into the published course table

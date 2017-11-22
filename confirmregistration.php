@@ -46,7 +46,7 @@ $error = optional_param('error', '', PARAM_ALPHANUM);
 admin_externalpage_setup('tool_customhub');
 
 if (!empty($error) and $error == 'urlalreadyexist') {
-    throw new moodle_exception('urlalreadyregistered', 'hub',
+    throw new moodle_exception('urlalreadyregistered', 'tool_customhub',
         $CFG->wwwroot . '/' . $CFG->admin . '/tool/customhub/index.php');
 }
 
@@ -81,7 +81,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     echo $OUTPUT->footer();
 } else {
-    throw new moodle_exception('wrongtoken', 'hub',
+    throw new moodle_exception('wrongtoken', 'tool_customhub',
         $CFG->wwwroot . '/' . $CFG->admin . '/tool/customhub/index.php');
 }
 

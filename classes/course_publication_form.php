@@ -153,12 +153,12 @@ class course_publication_form extends moodleform {
         //the input parameters
         $mform->addElement('header', 'moodle', get_string('publicationinfo', 'tool_customhub'));
 
-        $mform->addElement('text', 'name', get_string('coursename', 'hub'),
+        $mform->addElement('text', 'name', get_string('coursename', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->addRule('name', $strrequired, 'required', null, 'client');
         $mform->setType('name', PARAM_TEXT);
         $mform->setDefault('name', $defaultfullname);
-        $mform->addHelpButton('name', 'name', 'hub');
+        $mform->addHelpButton('name', 'name', 'tool_customhub');
 
         $mform->addElement('hidden', 'id', $this->_customdata['id']);
         $mform->setType('id', PARAM_INT);
@@ -168,11 +168,11 @@ class course_publication_form extends moodleform {
 
             $mform->addElement('hidden', 'share', $share);
             $mform->setType('share', PARAM_BOOL);
-            $mform->addElement('text', 'demourl', get_string('demourl', 'hub'),
+            $mform->addElement('text', 'demourl', get_string('demourl', 'tool_customhub'),
                 array('class' => 'metadatatext'));
             $mform->setType('demourl', PARAM_URL);
             $mform->setDefault('demourl', new moodle_url("/course/view.php?id=" . $course->id));
-            $mform->addHelpButton('demourl', 'demourl', 'hub');
+            $mform->addHelpButton('demourl', 'demourl', 'tool_customhub');
         }
 
         if ($advertise) {
@@ -185,62 +185,62 @@ class course_publication_form extends moodleform {
             $mform->setType('advertise', PARAM_BOOL);
             $mform->addElement('hidden', 'courseurl', $CFG->wwwroot . "/course/view.php?id=" . $course->id);
             $mform->setType('courseurl', PARAM_URL);
-            $mform->addElement('static', 'courseurlstring', get_string('courseurl', 'hub'));
+            $mform->addElement('static', 'courseurlstring', get_string('courseurl', 'tool_customhub'));
             $mform->setDefault('courseurlstring', new moodle_url("/course/view.php?id=" . $course->id));
-            $mform->addHelpButton('courseurlstring', 'courseurl', 'hub');
+            $mform->addHelpButton('courseurlstring', 'courseurl', 'tool_customhub');
         }
 
-        $mform->addElement('text', 'courseshortname', get_string('courseshortname', 'hub'),
+        $mform->addElement('text', 'courseshortname', get_string('courseshortname', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->setDefault('courseshortname', $defaultshortname);
-        $mform->addHelpButton('courseshortname', 'courseshortname', 'hub');
+        $mform->addHelpButton('courseshortname', 'courseshortname', 'tool_customhub');
         $mform->setType('courseshortname', PARAM_TEXT);
-        $mform->addElement('textarea', 'description', get_string('description'), array('rows' => 10,
+        $mform->addElement('textarea', 'description', get_string('description', 'tool_customhub'), array('rows' => 10,
             'cols' => 57));
         $mform->addRule('description', $strrequired, 'required', null, 'client');
         $mform->setDefault('description', $defaultsummary);
         $mform->setType('description', PARAM_TEXT);
-        $mform->addHelpButton('description', 'description', 'hub');
+        $mform->addHelpButton('description', 'description', 'tool_customhub');
 
         $languages = get_string_manager()->get_list_of_languages();
         core_collator::asort($languages);
-        $mform->addElement('select', 'language', get_string('language'), $languages);
+        $mform->addElement('select', 'language', get_string('language', 'tool_customhub'), $languages);
         $mform->setDefault('language', $defaultlanguage);
-        $mform->addHelpButton('language', 'language', 'hub');
+        $mform->addHelpButton('language', 'language', 'tool_customhub');
 
 
-        $mform->addElement('text', 'publishername', get_string('publishername', 'hub'),
+        $mform->addElement('text', 'publishername', get_string('publishername', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->setDefault('publishername', $defaultpublishername);
         $mform->addRule('publishername', $strrequired, 'required', null, 'client');
-        $mform->addHelpButton('publishername', 'publishername', 'hub');
+        $mform->addHelpButton('publishername', 'publishername', 'tool_customhub');
         $mform->setType('publishername', PARAM_NOTAGS);
 
-        $mform->addElement('text', 'publisheremail', get_string('publisheremail', 'hub'),
+        $mform->addElement('text', 'publisheremail', get_string('publisheremail', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->setDefault('publisheremail', $defaultpublisheremail);
         $mform->addRule('publisheremail', $strrequired, 'required', null, 'client');
-        $mform->addHelpButton('publisheremail', 'publisheremail', 'hub');
+        $mform->addHelpButton('publisheremail', 'publisheremail', 'tool_customhub');
         $mform->setType('publisheremail', PARAM_EMAIL);
 
-        $mform->addElement('text', 'creatorname', get_string('creatorname', 'hub'),
+        $mform->addElement('text', 'creatorname', get_string('creatorname', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->addRule('creatorname', $strrequired, 'required', null, 'client');
         $mform->setType('creatorname', PARAM_NOTAGS);
         $mform->setDefault('creatorname', $defaultcreatorname);
-        $mform->addHelpButton('creatorname', 'creatorname', 'hub');
+        $mform->addHelpButton('creatorname', 'creatorname', 'tool_customhub');
 
-        $mform->addElement('text', 'contributornames', get_string('contributornames', 'hub'),
+        $mform->addElement('text', 'contributornames', get_string('contributornames', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->setDefault('contributornames', $defaultcontributornames);
-        $mform->addHelpButton('contributornames', 'contributornames', 'hub');
+        $mform->addHelpButton('contributornames', 'contributornames', 'tool_customhub');
         $mform->setType('contributornames', PARAM_NOTAGS);
 
-        $mform->addElement('text', 'coverage', get_string('tags', 'hub'),
+        $mform->addElement('text', 'coverage', get_string('tags', 'tool_customhub'),
             array('class' => 'metadatatext'));
         $mform->setType('coverage', PARAM_TEXT);
         $mform->setDefault('coverage', $defaultcoverage);
-        $mform->addHelpButton('coverage', 'tags', 'hub');
+        $mform->addHelpButton('coverage', 'tags', 'tool_customhub');
 
 
 
@@ -251,47 +251,47 @@ class course_publication_form extends moodleform {
         foreach ($licences as $license) {
             $options[$license->shortname] = get_string($license->shortname, 'license');
         }
-        $mform->addElement('select', 'licence', get_string('license'), $options);
+        $mform->addElement('select', 'licence', get_string('licence', 'tool_customhub'), $options);
         $mform->setDefault('licence', $defaultlicenceshortname);
         unset($options);
-        $mform->addHelpButton('licence', 'licence', 'hub');
+        $mform->addHelpButton('licence', 'licence', 'tool_customhub');
 
         $options = $publicationmanager->get_sorted_subjects();
 
         $mform->addElement('searchableselector', 'subject',
-            get_string('subject', 'hub'), $options);
+            get_string('subject', 'tool_customhub'), $options);
         unset($options);
-        $mform->addHelpButton('subject', 'subject', 'hub');
+        $mform->addHelpButton('subject', 'subject', 'tool_customhub');
         $mform->setDefault('subject', $defaultsubject);
         $mform->addRule('subject', $strrequired, 'required', null, 'client');
 
         $options = array();
-        $options[HUB_AUDIENCE_EDUCATORS] = get_string('audienceeducators', 'hub');
-        $options[HUB_AUDIENCE_STUDENTS] = get_string('audiencestudents', 'hub');
-        $options[HUB_AUDIENCE_ADMINS] = get_string('audienceadmins', 'hub');
-        $mform->addElement('select', 'audience', get_string('audience', 'hub'), $options);
+        $options[HUB_AUDIENCE_EDUCATORS] = get_string('audienceeducators', 'tool_customhub');
+        $options[HUB_AUDIENCE_STUDENTS] = get_string('audiencestudents', 'tool_customhub');
+        $options[HUB_AUDIENCE_ADMINS] = get_string('audienceadmins', 'tool_customhub');
+        $mform->addElement('select', 'audience', get_string('audience', 'tool_customhub'), $options);
         $mform->setDefault('audience', $defaultaudience);
         unset($options);
-        $mform->addHelpButton('audience', 'audience', 'hub');
+        $mform->addHelpButton('audience', 'audience', 'tool_customhub');
 
         $options = array();
-        $options[HUB_EDULEVEL_PRIMARY] = get_string('edulevelprimary', 'hub');
-        $options[HUB_EDULEVEL_SECONDARY] = get_string('edulevelsecondary', 'hub');
-        $options[HUB_EDULEVEL_TERTIARY] = get_string('eduleveltertiary', 'hub');
-        $options[HUB_EDULEVEL_GOVERNMENT] = get_string('edulevelgovernment', 'hub');
-        $options[HUB_EDULEVEL_ASSOCIATION] = get_string('edulevelassociation', 'hub');
-        $options[HUB_EDULEVEL_CORPORATE] = get_string('edulevelcorporate', 'hub');
-        $options[HUB_EDULEVEL_OTHER] = get_string('edulevelother', 'hub');
-        $mform->addElement('select', 'educationallevel', get_string('educationallevel', 'hub'), $options);
+        $options[HUB_EDULEVEL_PRIMARY] = get_string('edulevelprimary', 'tool_customhub');
+        $options[HUB_EDULEVEL_SECONDARY] = get_string('edulevelsecondary', 'tool_customhub');
+        $options[HUB_EDULEVEL_TERTIARY] = get_string('eduleveltertiary', 'tool_customhub');
+        $options[HUB_EDULEVEL_GOVERNMENT] = get_string('edulevelgovernment', 'tool_customhub');
+        $options[HUB_EDULEVEL_ASSOCIATION] = get_string('edulevelassociation', 'tool_customhub');
+        $options[HUB_EDULEVEL_CORPORATE] = get_string('edulevelcorporate', 'tool_customhub');
+        $options[HUB_EDULEVEL_OTHER] = get_string('edulevelother', 'tool_customhub');
+        $mform->addElement('select', 'educationallevel', get_string('educationallevel', 'tool_customhub'), $options);
         $mform->setDefault('educationallevel', $defaulteducationallevel);
         unset($options);
-        $mform->addHelpButton('educationallevel', 'educationallevel', 'hub');
+        $mform->addHelpButton('educationallevel', 'educationallevel', 'tool_customhub');
 
         $editoroptions = array('maxfiles' => 0, 'maxbytes' => 0, 'trusttext' => false, 'forcehttps' => false);
-        $mform->addElement('editor', 'creatornotes', get_string('creatornotes', 'hub'), '', $editoroptions);
+        $mform->addElement('editor', 'creatornotes', get_string('creatornotes', 'tool_customhub'), '', $editoroptions);
         $mform->addRule('creatornotes', $strrequired, 'required', null, 'client');
         $mform->setType('creatornotes', PARAM_CLEANHTML);
-        $mform->addHelpButton('creatornotes', 'creatornotes', 'hub');
+        $mform->addHelpButton('creatornotes', 'creatornotes', 'tool_customhub');
 
         if ($advertise) {
             if (!empty($screenshotsnumber)) {
@@ -307,21 +307,21 @@ class course_publication_form extends moodleform {
                 } else {
                     $screenshothtml = get_string('existingscreenshotnumber', 'tool_customhub', $screenshotsnumber);
                 }
-                $mform->addElement('static', 'existingscreenshots', get_string('existingscreenshots', 'hub'), $screenshothtml);
-                $mform->addHelpButton('existingscreenshots', 'deletescreenshots', 'hub');
-                $mform->addElement('checkbox', 'deletescreenshots', '', ' ' . get_string('deletescreenshots', 'hub'));
+                $mform->addElement('static', 'existingscreenshots', get_string('existingscreenshots', 'tool_customhub'), $screenshothtml);
+                $mform->addHelpButton('existingscreenshots', 'deletescreenshots', 'tool_customhub');
+                $mform->addElement('checkbox', 'deletescreenshots', '', ' ' . get_string('deletescreenshots', 'tool_customhub'));
             }
 
             $mform->addElement('hidden', 'existingscreenshotnumber', $screenshotsnumber);
             $mform->setType('existingscreenshotnumber', PARAM_INT);
         }
 
-        $mform->addElement('filemanager', 'screenshots', get_string('addscreenshots', 'hub'), null,
+        $mform->addElement('filemanager', 'screenshots', get_string('addscreenshots', 'tool_customhub'), null,
             array('subdirs' => 0,
                 'maxbytes' => 1000000,
                 'maxfiles' => 3
             ));
-        $mform->addHelpButton('screenshots', 'screenshots', 'hub');
+        $mform->addHelpButton('screenshots', 'screenshots', 'tool_customhub');
 
         $this->add_action_buttons(false, $buttonlabel);
 
@@ -339,7 +339,7 @@ class course_publication_form extends moodleform {
         $errors = array();
 
         if ($this->_form->_submitValues['subject'] == 'none') {
-            $errors['subject'] = get_string('mustselectsubject', 'hub');
+            $errors['subject'] = get_string('mustselectsubject', 'tool_customhub');
         }
 
         return $errors;
