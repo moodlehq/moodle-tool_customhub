@@ -17,8 +17,8 @@
 /**
  * Strings for tool_customhub, language 'ja'
  *
- * @package   hub
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @package   tool_customhub
+ * @copyright 2017 Marina Glancy
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

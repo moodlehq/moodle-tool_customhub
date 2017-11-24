@@ -15,11 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Custom hub registration.
+ * On this page the administrator selects which hub he wants to register (except for moodle.net)
+ * Admins can register with moodle.net via the site admin menu "Registration" link.
+ * On this page the administrator can also unregister from any hubs including moodle.net.
  *
  * @package    tool_customhub
- * @copyright  2017 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 
 require_once(__DIR__ . '/../../../config.php');
@@ -30,18 +33,6 @@ require_once($CFG->dirroot . "/webservice/xmlrpc/lib.php");
 admin_externalpage_setup('tool_customhub');
 
 $renderer = $PAGE->get_renderer('tool_customhub');
-
-/*
- * @package    moodle
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
- * On this page the administrator selects which hub he wants to register (except for moodle.net)
- * Admins can register with moodle.net via the site admin menu "Registration" link.
- * On this page the administrator can also unregister from any hubs including moodle.net.
- */
 
 $unregistration = optional_param('unregistration', 0, PARAM_INT);
 $cleanregdata = optional_param('cleanregdata', 0, PARAM_BOOL);
@@ -163,8 +154,6 @@ if (empty($cancel) and $unregistration and !$confirm) {
         if (clean_param($unlistedhuburl, PARAM_URL) !== '') {
             $registeringhuburl = $unlistedhuburl;
         }
-    //} else if (!empty($selectedhuburl)) {
-    //    $registeringhuburl = $selectedhuburl;
     }
 
     // a hub has been selected, redirect to the hub registration page

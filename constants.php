@@ -22,7 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 /**
  * Site privacy: private
  */
@@ -48,8 +47,6 @@ define('HUB_LASTMODIFIED_FORTEENNIGHT', 14);
 
 define('HUB_LASTMODIFIED_MONTH', 30);
 
-
-
 //// AUDIENCE ////
 
 /**
@@ -66,8 +63,6 @@ define('HUB_AUDIENCE_STUDENTS', 'students');
  * Audience: admins
  */
 define('HUB_AUDIENCE_ADMINS', 'admins');
-
-
 
 ///// EDUCATIONAL LEVEL /////
 
@@ -105,8 +100,6 @@ define('HUB_EDULEVEL_CORPORATE', 'corporate');
  * Educational level: other
  */
 define('HUB_EDULEVEL_OTHER', 'other');
-
-
 
 ///// FILE TYPES /////
 

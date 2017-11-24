@@ -29,13 +29,10 @@ use stdClass;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- *
  * Course publication library
  *
- * @package   course
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
- * @author    Jerome Mouneyrac
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @package   tool_customhub
+ * @copyright 2010 Jerome Mouneyrac
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class course_publish_manager {

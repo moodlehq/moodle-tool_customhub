@@ -1,5 +1,4 @@
 <?php
-
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
 // This file is part of Moodle - http://moodle.org/                      //
@@ -20,13 +19,13 @@
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
-/*
+/**
+ * This page display the publication metadata form
+ *
  * @package    tool_customhub
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
- * This page display the publication metadata form
  */
 
 require_once(__DIR__ . '/../../../config.php');

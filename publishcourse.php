@@ -15,14 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * The user selects if he wants to publish the course on Moodle.org hub or
+ * on a specific hub. The site must be registered on a hub to be able to
+ * publish a course on it.
+ *
  * @package    tool_customhub
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
- * The user selects if he wants to publish the course on Moodle.org hub or
- * on a specific hub. The site must be registered on a hub to be able to
- * publish a course on it.
  */
 
 require_once(__DIR__ . '/../../../config.php');

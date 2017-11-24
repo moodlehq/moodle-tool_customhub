@@ -39,9 +39,8 @@ require_once($CFG->libdir . '/formslib.php');
  * The site registration form. Information will be sent to a given hub.
  *
  * @package    tool_customhub
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @copyright  Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 class site_registration_form extends moodleform {
 

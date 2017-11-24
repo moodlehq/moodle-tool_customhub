@@ -34,9 +34,8 @@ require_once($CFG->libdir . '/formslib.php');
  * This form display a unregistration form.
  *
  * @package    tool_customhub
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @copyright  Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 class site_unregistration_form extends moodleform {
 

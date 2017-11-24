@@ -34,6 +34,10 @@ require_once($CFG->libdir . '/formslib.php');
  * This form display a hub selector.
  * The hub list is retrieved from Moodle.org hub directory.
  * Also displayed, a text field to enter private hub url + its password
+ *
+ * @package    tool_customhub
+ * @copyright  Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  */
 class hub_selector_form extends moodleform {
 

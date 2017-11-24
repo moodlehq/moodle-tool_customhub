@@ -20,16 +20,15 @@
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
-/*
- * @package    moodle
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
+/**
  * This page displays the site registration form for Moodle.org/MOOCH or for a different hub.
  * It handles redirection to the hub to continue the registration workflow process.
  * It also handles update operation by web service.
+ *
+ * @package    tool_customhub
+ * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 
 

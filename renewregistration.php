@@ -20,32 +20,23 @@
 ///////////////////////////////////////////////////////////////////////////
 
 /**
- * The administrator is redirect to this page from the hub to confirm that the
- * site has been registered. It is an administration page. The administrator
- * should be using the same browser during all the registration process.
- * This page save the token that the hub gave us, in order to call the hub
- * directory later by web service.
+ * The administrator is redirect to this page from the hub to renew a registration
+ * process because
  *
  * @package    tool_customhub
- * @copyright  Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 
-$newtoken = optional_param('newtoken', '', PARAM_ALPHANUM);
 $url = optional_param('url', '', PARAM_URL);
 $hubname = optional_param('hubname', '', PARAM_TEXT);
 $token = optional_param('token', '', PARAM_TEXT);
-$error = optional_param('error', '', PARAM_ALPHANUM);
 
 admin_externalpage_setup('tool_customhub');
-
-if (!empty($error) and $error == 'urlalreadyexist') {
-    throw new moodle_exception('urlalreadyregistered', 'tool_customhub',
-        $CFG->wwwroot . '/' . $CFG->admin . '/tool/customhub/index.php');
-}
 
 //check that we are waiting a confirmation from this hub, and check that the token is correct
 $registrationmanager = new tool_customhub\registration_manager();
@@ -53,33 +44,22 @@ $registeredhub = $registrationmanager->get_unconfirmedhub($url);
 if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('registrationconfirmed', 'tool_customhub'), 3, 'main');
+    echo $OUTPUT->heading(get_string('renewregistration', 'tool_customhub'), 3, 'main');
+    $hublink = html_writer::tag('a', $hubname, array('href' => $url));
 
-    $registeredhub->token = $newtoken;
-    $registeredhub->confirmed = 1;
-    $registeredhub->hubname = $hubname;
-    $registrationmanager->update_registeredhub($registeredhub);
+    $registrationmanager->delete_registeredhub($url);
 
-    // Display notification message.
-    echo $OUTPUT->notification(get_string('registrationconfirmedon', 'tool_customhub'), 'notifysuccess');
+    $deletedregmsg = get_string('previousregistrationdeleted', 'tool_customhub', $hublink);
 
-    //display continue button
-    $registrationpage = new moodle_url('/admin/tool/customhub/index.php');
-    $continuebutton = $OUTPUT->render(new single_button($registrationpage, get_string('continue')));
-    $continuebutton = html_writer::tag('div', $continuebutton, array('class' => 'mdl-align'));
-    echo $continuebutton;
+    $button = new single_button(new moodle_url('/admin/tool/customhub/index.php'),
+        get_string('restartregistration', 'tool_customhub'));
+    $button->class = 'restartregbutton';
 
-    if (!extension_loaded('xmlrpc')) {
-        //display notice about xmlrpc
-        $xmlrpcnotification = $OUTPUT->doc_link('admin/environment/php_extension/xmlrpc', '');
-        $xmlrpcnotification .= get_string('xmlrpcdisabledregistration', 'tool_customhub');
-        echo $OUTPUT->notification($xmlrpcnotification);
-    }
+    echo html_writer::tag('div', $deletedregmsg . $OUTPUT->render($button),
+        array('class' => 'mdl-align'));
 
     echo $OUTPUT->footer();
 } else {
     throw new moodle_exception('wrongtoken', 'tool_customhub',
         $CFG->wwwroot . '/' . $CFG->admin . '/tool/customhub/index.php');
 }
-
-

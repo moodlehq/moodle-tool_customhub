@@ -15,21 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Definition of core scheduled tasks.
+ * Definition of scheduled tasks for tool_customhub.
  *
- * The handlers defined on this file are processed and registered into
- * the Moodle DB after any install or upgrade operation. All plugins
- * support this.
- *
- * @package   core
- * @category  task
- * @copyright 2013 Damyon Wiese
+ * @package   tool_customhub
+ * @copyright 2017 Marina Glancy
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-/* List of handlers */
 
 $tasks = array(
     array(

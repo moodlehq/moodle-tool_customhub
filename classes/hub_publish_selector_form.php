@@ -19,14 +19,12 @@
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
-/*
- * @package    course
- * @subpackage publish
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
+/**
+ * Class course_publication_form
  *
- * The forms used for course publication
+ * @package    tool_customhub
+ * @copyright  2017 Marina Glancy
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  */
 
 namespace tool_customhub;
@@ -38,10 +36,13 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 
-/*
+/**
  * Hub selector to choose on which hub we want to publish.
+ *
+ * @package    tool_customhub
+ * @copyright  Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  */
-
 class hub_publish_selector_form extends moodleform {
 
     public function definition() {

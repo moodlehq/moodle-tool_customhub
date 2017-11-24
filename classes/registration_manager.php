@@ -36,11 +36,9 @@ defined('MOODLE_INTERNAL') || die();
  *
  * Site registration library
  *
- * @package   course
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
- * @author    Jerome Mouneyrac
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool_customhub
+ * @copyright  2010 Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class registration_manager {
 

@@ -27,6 +27,8 @@ defined('MOODLE_INTERNAL') || die;
 /**
  * This function extends the navigation with the tool items
  *
+ * Add "Publish to hub" to the course administration after "Share"
+ *
  * @param navigation_node $navigation The navigation node to extend
  * @param stdClass        $course     The course to object for the tool
  * @param context         $context    The context of the course
@@ -49,7 +51,16 @@ function tool_customhub_extend_navigation_course($navigation, $course, $context)
 
 /**
  * Callback called from /admin/registration/confirmregistration.php
+ * and /admin/registration/renewregistration.php
+ *
+ * These are endpoints that hub calls when registration process is complete
+ * We need to redirect to the endpoints of this plugin instead
  */
-function tool_customhub_confirm_registration() {
-    redirect(new moodle_url('/admin/tool/customhub/confirmregistration.php', $_GET));
+function tool_customhub_hub_registration($action) {
+    if ($action === 'confirm') {
+        redirect(new moodle_url('/admin/tool/customhub/confirmregistration.php', $_GET));
+    }
+    if ($action === 'renew') {
+        redirect(new moodle_url('/admin/tool/customhub/renewregistration.php', $_GET));
+    }
 }

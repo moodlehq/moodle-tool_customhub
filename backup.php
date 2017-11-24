@@ -23,11 +23,9 @@
 /**
  * This page display the publication backup form
  *
- * @package    course
- * @subpackage publish
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @package    tool_customhub
+ * @copyright     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  */
 
 define('NO_OUTPUT_BUFFERING', true);
